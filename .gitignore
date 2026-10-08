@@ -1,9 +1,5 @@
-database/
-uploads/
-output/
-temp/
-.env
-*.db
-*.sqlite
+.DS_Store
 *.log
-*.bak
+scratch/
+.env
+data/*.db

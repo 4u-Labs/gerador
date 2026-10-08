@@ -502,6 +502,26 @@
             color: #ffffff;
         }
 
+        .btn-sql {
+            background: rgba(14, 165, 233, 0.12);
+            border-color: rgba(14, 165, 233, 0.25);
+            color: #0ea5e9;
+        }
+        .btn-sql:not(:disabled):hover {
+            background: #0ea5e9;
+            color: #ffffff;
+        }
+
+        .btn-validator {
+            background: rgba(168, 85, 247, 0.12);
+            border-color: rgba(168, 85, 247, 0.25);
+            color: #a855f7;
+        }
+        .btn-validator:not(:disabled):hover {
+            background: #a855f7;
+            color: #ffffff;
+        }
+
         /* EMPTY STATE / PLACEHOLDER */
         .empty-state {
             width: 100%;
@@ -713,6 +733,178 @@
         .data-item-row:hover .data-item-copy-icon {
             opacity: 1;
             color: var(--accent-primary);
+        }
+
+        .data-item-actions {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            opacity: 0;
+            transition: opacity 0.2s;
+            flex-shrink: 0;
+        }
+        .data-item-row:hover .data-item-actions {
+            opacity: 1;
+        }
+        .item-action-icon {
+            padding: 4px 7px;
+            font-size: 11px;
+            border-radius: 4px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-default);
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: all 0.15s ease;
+            line-height: 1;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .item-action-icon:hover {
+            color: var(--accent-primary);
+            border-color: var(--accent-primary);
+            background: var(--bg-input-focus);
+        }
+        .raw-copy-btn:hover {
+            color: #10b981 !important;
+            border-color: #10b981 !important;
+        }
+
+        /* BATCH TOOLBAR */
+        .batch-toolbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: var(--bg-card);
+            border: 1px solid var(--border-default);
+            border-radius: var(--radius-md);
+            padding: 10px 16px;
+            margin-bottom: 20px;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        .batch-info {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            font-weight: 600;
+        }
+        .batch-nav-btns {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .batch-pills {
+            display: flex;
+            gap: 4px;
+            align-items: center;
+        }
+        .batch-pill-btn {
+            width: 28px;
+            height: 28px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 11px;
+            font-weight: 700;
+            background: var(--bg-input);
+            border: 1px solid var(--border-default);
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: all 0.15s ease;
+        }
+        .batch-pill-btn:hover, .batch-pill-btn.active {
+            background: var(--accent-primary);
+            color: #ffffff;
+            border-color: var(--accent-primary);
+        }
+
+        /* MODAL DE VALIDAÇÃO */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.72);
+            backdrop-filter: blur(8px);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.25s ease;
+        }
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        .modal-content-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-default);
+            border-radius: var(--radius-lg);
+            max-width: 580px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 24px 48px rgba(0,0,0,0.5);
+            padding: 24px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        .modal-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid var(--border-default);
+            padding-bottom: 14px;
+        }
+        .modal-close-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-muted);
+            font-size: 18px;
+            cursor: pointer;
+            padding: 4px;
+            transition: color 0.15s;
+        }
+        .modal-close-btn:hover {
+            color: #ef4444;
+        }
+        .val-input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .val-result-box {
+            padding: 14px 16px;
+            border-radius: var(--radius-md);
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            line-height: 1.4;
+        }
+        .val-result-valid {
+            background: rgba(16, 185, 129, 0.12);
+            border: 1px solid rgba(16, 185, 129, 0.35);
+            color: #10b981;
+        }
+        .val-result-invalid {
+            background: rgba(239, 68, 68, 0.12);
+            border: 1px solid rgba(239, 68, 68, 0.35);
+            color: #ef4444;
+        }
+        .val-result-idle {
+            background: var(--bg-input);
+            border: 1px solid var(--border-default);
+            color: var(--text-muted);
         }
 
         /* ======================================================== */
@@ -1370,7 +1562,7 @@
                 </div>
             </div>
             <label class="consent-label">
-                <input type="checkbox" id="consent-checkbox" class="consent-checkbox">
+                <input type="checkbox" id="consent-checkbox" class="consent-checkbox" checked>
                 <span>Ciente para testes</span>
             </label>
         </div>
@@ -1406,6 +1598,17 @@
                 </div>
 
                 <div class="control-group">
+                    <label class="control-label"><i class="fas fa-layer-group"></i> Quantidade</label>
+                    <select id="batch-select" class="select-input">
+                        <option value="1" selected>1 Registro</option>
+                        <option value="5">5 Registros (Lote)</option>
+                        <option value="10">10 Registros (Lote)</option>
+                        <option value="25">25 Registros (Lote)</option>
+                        <option value="50">50 Registros (Lote)</option>
+                    </select>
+                </div>
+
+                <div class="control-group">
                     <label class="control-label"><i class="fas fa-building"></i> Pessoa Jurídica</label>
                     <label class="toggle-switch-wrapper">
                         <span class="toggle-switch-label">Incluir Empresa</span>
@@ -1416,7 +1619,7 @@
 
             <div class="actions-row">
                 <div class="actions-primary">
-                    <button id="generate-btn" class="btn btn-generate" disabled>
+                    <button id="generate-btn" class="btn btn-generate" title="Atalho: Espaço ou Ctrl+Enter">
                         <i class="fas fa-bolt"></i>
                         <span>Gerar Dados Fictícios</span>
                     </button>
@@ -1431,6 +1634,14 @@
                     <button id="export-csv-btn" class="btn btn-csv" style="display:none;">
                         <i class="fas fa-file-csv"></i>
                         <span>CSV</span>
+                    </button>
+                    <button id="export-sql-btn" class="btn btn-sql" style="display:none;" title="Exportar Script SQL INSERT INTO">
+                        <i class="fas fa-database"></i>
+                        <span>SQL</span>
+                    </button>
+                    <button id="validator-btn" class="btn btn-validator" title="Validar CPF, CNPJ, PIS ou Cartão de Crédito">
+                        <i class="fas fa-check-double"></i>
+                        <span>Validador</span>
                     </button>
                 </div>
 
@@ -1458,8 +1669,11 @@
                 <i class="fas fa-wand-magic-sparkles"></i>
             </div>
             <div class="empty-title">Pronto para gerar dados de teste</div>
-            <div class="empty-desc">Marque a caixa de ciência acima e clique em <strong>Gerar Dados Fictícios</strong> para preencher cadastros completos instantaneamente.</div>
+            <div class="empty-desc">Clique em <strong>Gerar Dados Fictícios</strong> para preencher cadastros completos instantaneamente (ou pressione a tecla Espaço).</div>
         </div>
+
+        <!-- BATCH TOOLBAR -->
+        <div id="batch-toolbar" class="batch-toolbar" style="display:none;"></div>
 
         <!-- OUTPUT GRID (PERFECT SYMMETRICAL 2x3 LAYOUT) -->
         <div id="data-output" class="output-grid" style="display:none;"></div>
@@ -1485,6 +1699,57 @@
 
     <!-- TOAST CONTAINER -->
     <div id="toast-container" class="toast-container"></div>
+
+    <!-- MODAL DE VALIDAÇÃO DE DOCUMENTOS -->
+    <div id="validator-modal" class="modal-overlay">
+        <div class="modal-content-card">
+            <div class="modal-header">
+                <div style="font-size: 16px; font-weight: 700; display: flex; align-items: center; gap: 8px;">
+                    <i class="fas fa-check-double" style="color: #a855f7;"></i>
+                    <span>Validador de Documentos em Tempo Real</span>
+                </div>
+                <button type="button" class="modal-close-btn" id="close-validator-btn" title="Fechar modal">
+                    <i class="fas fa-xmark"></i>
+                </button>
+            </div>
+            
+            <p style="font-size: 13px; color: var(--text-muted); margin: 0; line-height: 1.5;">
+                Cole ou digite qualquer CPF, CNPJ, PIS/PASEP ou número de Cartão de Crédito para validar os dígitos verificadores (Módulo 11 e Algoritmo de Luhn) instantaneamente.
+            </p>
+
+            <div class="val-input-group">
+                <label style="font-size: 12px; font-weight: 600; color: var(--text-muted);">Tipo de Documento</label>
+                <select id="val-doc-type" class="select-input">
+                    <option value="auto">Detecção Automática (Auto)</option>
+                    <option value="cpf">CPF (Pessoa Física)</option>
+                    <option value="cnpj">CNPJ (Pessoa Jurídica)</option>
+                    <option value="pis">PIS / PASEP</option>
+                    <option value="card">Cartão de Crédito (Luhn)</option>
+                </select>
+            </div>
+
+            <div class="val-input-group">
+                <label style="font-size: 12px; font-weight: 600; color: var(--text-muted);">Número do Documento</label>
+                <div style="position: relative;">
+                    <input type="text" id="val-doc-input" class="select-input" placeholder="Ex: 123.456.789-00 ou cole o número aqui..." style="width: 100%; padding-right: 40px; font-family: monospace; font-size: 14px;">
+                    <button type="button" id="val-paste-btn" class="item-action-icon" style="position: absolute; right: 8px; top: 50%; transform: translateY(-50%); font-size: 12px;" title="Colar da área de transferência">
+                        <i class="fas fa-paste"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div id="val-status-result" class="val-result-box val-result-idle">
+                <i class="fas fa-circle-info"></i>
+                <span id="val-status-text">Digite ou cole um documento acima para validar.</span>
+            </div>
+
+            <div style="display: flex; justify-content: flex-end; gap: 8px; margin-top: 6px;">
+                <button type="button" id="val-clear-btn" class="btn btn-secondary" style="height: 34px; padding: 0 14px; font-size: 12px;">
+                    <i class="fas fa-eraser"></i> Limpar
+                </button>
+            </div>
+        </div>
+    </div>
 
     <script>
 class DataGenerator {
@@ -1545,6 +1810,7 @@ class DataGenerator {
                 this.professions = ["Desenvolvedor(a) de Software", "Engenheiro(a) Civil", "Médico(a)", "Enfermeiro(a)", "Professor(a)", "Advogado(a)", "Contador(a)", "Designer Gráfico", "Analista de Marketing", "Gerente de Projetos", "Administrador(a)", "Arquiteto(a)"];
                 this.bloodTypes = ["A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-"];
                 this.orgaosEmissores = ["SSP", "DETRAN", "IFP", "PC", "PM"];
+                this.carColors = ["Prata", "Preto Vulcano", "Branco Polar", "Cinza Chumbo", "Vermelho Carmim", "Azul Metálico", "Grafite Escuro"];
             }
 
             random(min, max) {
@@ -1685,6 +1951,90 @@ generateCTPS(uf = 'SP') {
                 const series = `${this.randomDigits(3).padStart(3, '0')}-${uf}`;
                 return { number, series };
             }
+
+            validateCPF(cpf) {
+                const clean = String(cpf).replace(/\D/g, '');
+                if (clean.length !== 11) return { valid: false, message: 'CPF deve conter exatamente 11 dígitos numéricos.' };
+                if (/^(\d)\1{10}$/.test(clean)) return { valid: false, message: 'CPF inválido: todos os dígitos são iguais.' };
+                let sum = 0;
+                for (let i = 0; i < 9; i++) sum += parseInt(clean[i]) * (10 - i);
+                let rev = 11 - (sum % 11);
+                if (rev >= 10) rev = 0;
+                if (rev !== parseInt(clean[9])) return { valid: false, message: 'Primeiro dígito verificador incorreto.' };
+                sum = 0;
+                for (let i = 0; i < 10; i++) sum += parseInt(clean[i]) * (11 - i);
+                rev = 11 - (sum % 11);
+                if (rev >= 10) rev = 0;
+                if (rev !== parseInt(clean[10])) return { valid: false, message: 'Segundo dígito verificador incorreto.' };
+                return { valid: true, message: 'CPF autêntico com dígitos verificadores válidos.' };
+            }
+
+            validateCNPJ(cnpj) {
+                const clean = String(cnpj).replace(/\D/g, '');
+                if (clean.length !== 14) return { valid: false, message: 'CNPJ deve conter exatamente 14 dígitos numéricos.' };
+                if (/^(\d)\1{13}$/.test(clean)) return { valid: false, message: 'CNPJ inválido: todos os dígitos são iguais.' };
+                let length = clean.length - 2;
+                let numbers = clean.substring(0, length);
+                let digits = clean.substring(length);
+                let sum = 0;
+                let pos = length - 7;
+                for (let i = length; i >= 1; i--) {
+                    sum += parseInt(numbers.charAt(length - i)) * pos--;
+                    if (pos < 2) pos = 9;
+                }
+                let result = sum % 11 < 2 ? 0 : 11 - (sum % 11);
+                if (result !== parseInt(digits.charAt(0))) return { valid: false, message: 'Primeiro dígito verificador do CNPJ incorreto.' };
+                length = length + 1;
+                numbers = clean.substring(0, length);
+                sum = 0;
+                pos = length - 7;
+                for (let i = length; i >= 1; i--) {
+                    sum += parseInt(numbers.charAt(length - i)) * pos--;
+                    if (pos < 2) pos = 9;
+                }
+                result = sum % 11 < 2 ? 0 : 11 - (sum % 11);
+                if (result !== parseInt(digits.charAt(1))) return { valid: false, message: 'Segundo dígito verificador do CNPJ incorreto.' };
+                return { valid: true, message: 'CNPJ autêntico com dígitos verificadores válidos.' };
+            }
+
+            validatePIS(pis) {
+                const clean = String(pis).replace(/\D/g, '');
+                if (clean.length !== 11) return { valid: false, message: 'PIS/PASEP deve conter 11 dígitos numéricos.' };
+                if (/^(\d)\1{10}$/.test(clean)) return { valid: false, message: 'PIS inválido: dígitos repetidos.' };
+                const weights = [3, 2, 9, 8, 7, 6, 5, 4, 3, 2];
+                let sum = 0;
+                for (let i = 0; i < 10; i++) sum += parseInt(clean[i]) * weights[i];
+                const rest = sum % 11;
+                const dv = rest < 2 ? 0 : 11 - rest;
+                if (dv !== parseInt(clean[10])) return { valid: false, message: 'Dígito verificador do PIS incorreto.' };
+                return { valid: true, message: 'PIS/PASEP válido com algoritmo oficial.' };
+            }
+
+            validateCreditCard(num) {
+                const clean = String(num).replace(/\D/g, '');
+                if (clean.length < 13 || clean.length > 19) return { valid: false, message: 'Cartão deve ter entre 13 e 19 dígitos numéricos.' };
+                let sum = 0;
+                let shouldDouble = false;
+                for (let i = clean.length - 1; i >= 0; i--) {
+                    let digit = parseInt(clean.charAt(i));
+                    if (shouldDouble) {
+                        digit *= 2;
+                        if (digit > 9) digit -= 9;
+                    }
+                    sum += digit;
+                    shouldDouble = !shouldDouble;
+                }
+                if (sum % 10 !== 0) return { valid: false, message: 'Cartão inválido pelo Algoritmo de Luhn (Check Digit incorreto).' };
+                let brand = 'Desconhecida';
+                if (/^4/.test(clean)) brand = 'Visa';
+                else if (/^(5[1-5]|2[2-7])/.test(clean)) brand = 'Mastercard';
+                else if (/^3[47]/.test(clean)) brand = 'American Express';
+                else if (/^(6011|65|64[4-9])/.test(clean)) brand = 'Discover';
+                else if (/^(4011|4389|4514|4576|5041|5067|5090|6277|6362|6363)/.test(clean)) brand = 'Elo';
+                else if (/^(606282|3841)/.test(clean)) brand = 'Hipercard';
+                return { valid: true, message: `Cartão válido (${brand}) aprovado no Algoritmo de Luhn.` };
+            }
+
 generate(options = {}) {
                 const { gender = 'any', uf = '', ageRange = '18-80', includePJ = false } = options;
                 const selectedUf = uf || this.randomElement(this.ufs);
@@ -1809,6 +2159,7 @@ generate(options = {}) {
                     cartaoCredito: {
                         'Bandeira': cardFlag,
                         'Número': cardNumber,
+                        'Número do Cartão': cardNumber,
                         'Validade': cardExpiry,
                         'CVV': cardCvv,
                         'Nome no Cartão': fullName.toUpperCase()
@@ -1816,6 +2167,7 @@ generate(options = {}) {
                     veiculo: {
                         'Marca': carBrand,
                         'Modelo': carModel,
+                        'Cor': this.randomElement(this.carColors),
                         'Ano': `${fabYear}/${modelYear}`,
                         'Placa (Mercosul)': this.generatePlaca ? this.generatePlaca() : 'ABC1D23',
                         'RENAVAM': this.generateRenavam ? this.generateRenavam() : this.randomDigits(11),
@@ -1848,6 +2200,8 @@ generate(options = {}) {
             constructor() {
                 this.generator = new DataGenerator();
                 this.generatedData = {};
+                this.batchRecords = [];
+                this.currentBatchIndex = 0;
                 this.history = JSON.parse(localStorage.getItem('datagenHistory') || '[]');
                 this.init();
             }
@@ -1859,6 +2213,8 @@ generate(options = {}) {
                 this.populateUFs();
                 this.updateYear();
                 this.updateHistoryCount();
+                // Auto-gerar primeiro registro no carregamento para máxima conveniência
+                this.generate();
             }
 
             initTheme() {
@@ -1889,18 +2245,28 @@ generate(options = {}) {
                 this.copyAllBtn = document.getElementById('copy-all-btn');
                 this.exportJsonBtn = document.getElementById('export-json-btn');
                 this.exportCsvBtn = document.getElementById('export-csv-btn');
+                this.exportSqlBtn = document.getElementById('export-sql-btn');
+                this.validatorBtn = document.getElementById('validator-btn');
                 this.historyBtn = document.getElementById('history-btn');
                 this.historyCount = document.getElementById('history-count');
                 this.genderSelect = document.getElementById('gender-select');
                 this.ufSelect = document.getElementById('uf-select');
                 this.ageSelect = document.getElementById('age-select');
+                this.batchSelect = document.getElementById('batch-select');
                 this.pjCheckbox = document.getElementById('pj-checkbox');
                 this.dataOutput = document.getElementById('data-output');
                 this.placeholder = document.getElementById('placeholder');
+                this.batchToolbar = document.getElementById('batch-toolbar');
                 this.historyPanel = document.getElementById('history-panel');
                 this.historyList = document.getElementById('history-list');
                 this.clearHistoryBtn = document.getElementById('clear-history-btn');
                 this.themeToggleBtn = document.getElementById('theme-toggle-btn');
+                this.validatorModal = document.getElementById('validator-modal');
+                this.valDocType = document.getElementById('val-doc-type');
+                this.valDocInput = document.getElementById('val-doc-input');
+                this.closeValidatorBtn = document.getElementById('close-validator-btn');
+                this.valPasteBtn = document.getElementById('val-paste-btn');
+                this.valClearBtn = document.getElementById('val-clear-btn');
             }
 
             bindEvents() {
@@ -1909,9 +2275,81 @@ generate(options = {}) {
                 this.copyAllBtn.addEventListener('click', () => this.copyAll());
                 this.exportJsonBtn.addEventListener('click', () => this.exportJSON());
                 this.exportCsvBtn.addEventListener('click', () => this.exportCSV());
+                if (this.exportSqlBtn) this.exportSqlBtn.addEventListener('click', () => this.exportSQL());
+                if (this.validatorBtn) this.validatorBtn.addEventListener('click', () => this.openValidatorModal());
+                if (this.closeValidatorBtn) this.closeValidatorBtn.addEventListener('click', () => this.closeValidatorModal());
+                if (this.valPasteBtn) {
+                    this.valPasteBtn.addEventListener('click', async () => {
+                        try {
+                            const clipText = await navigator.clipboard.readText();
+                            if (this.valDocInput) {
+                                this.valDocInput.value = clipText.trim();
+                                this.handleValidatorInput();
+                            }
+                        } catch (e) {
+                            this.showToast('Não foi possível ler a área de transferência', 'error');
+                        }
+                    });
+                }
+                if (this.valClearBtn) {
+                    this.valClearBtn.addEventListener('click', () => {
+                        if (this.valDocInput) {
+                            this.valDocInput.value = '';
+                            this.handleValidatorInput();
+                            this.valDocInput.focus();
+                        }
+                    });
+                }
+                if (this.valDocInput) {
+                    this.valDocInput.addEventListener('input', () => this.handleValidatorInput());
+                }
+                if (this.valDocType) {
+                    this.valDocType.addEventListener('change', () => this.handleValidatorInput());
+                }
+                if (this.validatorModal) {
+                    this.validatorModal.addEventListener('click', (e) => {
+                        if (e.target === this.validatorModal) this.closeValidatorModal();
+                    });
+                }
                 this.historyBtn.addEventListener('click', () => this.toggleHistory());
                 this.clearHistoryBtn.addEventListener('click', () => this.clearHistory());
                 this.themeToggleBtn.addEventListener('click', () => this.toggleTheme());
+
+                // Atalhos de teclado: Espaço ou Ctrl+Enter para gerar, Esc para fechar modal
+                window.addEventListener('keydown', (e) => {
+                    if (e.key === 'Escape' && this.validatorModal && this.validatorModal.classList.contains('active')) {
+                        this.closeValidatorModal();
+                        return;
+                    }
+                    const tag = (document.activeElement && document.activeElement.tagName) ? document.activeElement.tagName.toLowerCase() : '';
+                    const isEditing = tag === 'input' || tag === 'textarea' || tag === 'select';
+                    if (!isEditing) {
+                        if (e.code === 'Space' || ((e.ctrlKey || e.metaKey) && e.key === 'Enter')) {
+                            e.preventDefault();
+                            this.generate();
+                        }
+                    }
+                });
+
+                // Delegação de clique em linhas e botões de cópia direta
+                this.dataOutput.addEventListener('click', (e) => {
+                    const rawBtn = e.target.closest('button[data-action="copy-raw"]');
+                    if (rawBtn) {
+                        e.stopPropagation();
+                        this.copyValue(rawBtn.dataset.val, rawBtn.dataset.label);
+                        return;
+                    }
+                    const formattedBtn = e.target.closest('button[data-action="copy-formatted"]');
+                    if (formattedBtn) {
+                        e.stopPropagation();
+                        this.copyValue(formattedBtn.dataset.val, formattedBtn.dataset.label);
+                        return;
+                    }
+                    const row = e.target.closest('.data-item-row');
+                    if (row && row.dataset.val) {
+                        this.copyValue(row.dataset.val, row.dataset.label);
+                    }
+                });
             }
 
             populateUFs() {
@@ -1956,15 +2394,83 @@ generate(options = {}) {
                         includePJ: this.pjCheckbox.checked
                     };
 
-                    this.generatedData = this.generator.generate(options);
+                    const batchCount = this.batchSelect ? parseInt(this.batchSelect.value) || 1 : 1;
+                    this.batchRecords = [];
+                    for (let i = 0; i < batchCount; i++) {
+                        this.batchRecords.push(this.generator.generate(options));
+                    }
+                    this.currentBatchIndex = 0;
+                    this.generatedData = this.batchRecords[0];
+
                     this.renderData();
+                    this.renderBatchToolbar();
                     this.saveToHistory();
                     this.showButtons();
 
                     this.generateBtn.innerHTML = '<i class="fas fa-arrows-rotate"></i><span>Gerar Novamente</span>';
                     this.generateBtn.disabled = false;
-                    this.showToast('Dados cadastrais gerados com sucesso!', 'success');
-                }, 200);
+                    const toastMsg = batchCount > 1 
+                        ? `Lote de ${batchCount} registros gerado com sucesso!`
+                        : 'Dados cadastrais gerados com sucesso!';
+                    this.showToast(toastMsg, 'success');
+                }, 150);
+            }
+
+            renderBatchToolbar() {
+                if (!this.batchToolbar) return;
+                if (!this.batchRecords || this.batchRecords.length <= 1) {
+                    this.batchToolbar.style.display = 'none';
+                    return;
+                }
+                const total = this.batchRecords.length;
+                const current = this.currentBatchIndex + 1;
+                const activeName = (this.generatedData && this.generatedData.dadosPessoais) ? this.generatedData.dadosPessoais['Nome Completo'] : '';
+
+                let pillsHtml = '';
+                for (let i = 0; i < total; i++) {
+                    if (total <= 12 || i === 0 || i === total - 1 || Math.abs(i - this.currentBatchIndex) <= 2) {
+                        pillsHtml += `<button type="button" class="batch-pill-btn ${i === this.currentBatchIndex ? 'active' : ''}" data-batch-idx="${i}" title="Ver registro #${i + 1}">${i + 1}</button>`;
+                    } else if (i === 1 || i === total - 2) {
+                        pillsHtml += `<span style="color:var(--text-muted);font-size:11px;padding:0 2px;">•••</span>`;
+                    }
+                }
+
+                this.batchToolbar.innerHTML = `
+                    <div class="batch-info">
+                        <i class="fas fa-layer-group" style="color: var(--accent-primary);"></i>
+                        <span>Lote com <strong>${total} Registros</strong> &bull; Exibindo <strong>#${current}</strong>: ${activeName}</span>
+                    </div>
+                    <div class="batch-nav-btns">
+                        <button type="button" class="btn btn-secondary" id="batch-prev-btn" style="height: 30px; padding: 0 10px; font-size: 12px;" ${this.currentBatchIndex === 0 ? 'disabled' : ''}>
+                            <i class="fas fa-chevron-left"></i> Anterior
+                        </button>
+                        <div class="batch-pills">
+                            ${pillsHtml}
+                        </div>
+                        <button type="button" class="btn btn-secondary" id="batch-next-btn" style="height: 30px; padding: 0 10px; font-size: 12px;" ${this.currentBatchIndex === total - 1 ? 'disabled' : ''}>
+                            Próximo <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                `;
+                this.batchToolbar.style.display = 'flex';
+
+                const prevBtn = document.getElementById('batch-prev-btn');
+                const nextBtn = document.getElementById('batch-next-btn');
+                if (prevBtn) prevBtn.onclick = () => this.switchBatchIndex(this.currentBatchIndex - 1);
+                if (nextBtn) nextBtn.onclick = () => this.switchBatchIndex(this.currentBatchIndex + 1);
+
+                this.batchToolbar.querySelectorAll('.batch-pill-btn').forEach(btn => {
+                    btn.onclick = () => this.switchBatchIndex(parseInt(btn.dataset.batchIdx));
+                });
+            }
+
+            switchBatchIndex(idx) {
+                if (!this.batchRecords || idx < 0 || idx >= this.batchRecords.length) return;
+                this.currentBatchIndex = idx;
+                this.generatedData = this.batchRecords[idx];
+                this.renderData();
+                this.renderBatchToolbar();
+                this.showToast(`Exibindo #${idx + 1} de ${this.batchRecords.length}: ${this.generatedData.dadosPessoais['Nome Completo']}`, 'info');
             }
 
             renderData() {
@@ -2003,6 +2509,35 @@ generate(options = {}) {
                 this.dataOutput.appendChild(col3);
             }
 
+            renderDataRows(data) {
+                if (!data) return '';
+                let rowsHtml = '';
+                for (const [label, val] of Object.entries(data)) {
+                    const strVal = String(val);
+                    const escapedVal = strVal.replace(/"/g, '&quot;');
+                    const digitsOnly = strVal.replace(/\D/g, '');
+                    const hasFormatting = digitsOnly.length >= 4 && digitsOnly !== strVal && !strVal.includes('@');
+
+                    rowsHtml += `
+                        <div class="data-item-row" data-val="${escapedVal}" data-label="${label}" title="Clique para copiar formatado">
+                            <span class="data-item-label">${label}</span>
+                            <span class="data-item-value">${strVal}</span>
+                            <div class="data-item-actions">
+                                <button type="button" class="item-action-icon" data-action="copy-formatted" data-val="${escapedVal}" data-label="${label}" title="Copiar formatado">
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                                ${hasFormatting ? `
+                                <button type="button" class="item-action-icon raw-copy-btn" data-action="copy-raw" data-val="${digitsOnly}" data-label="${label} (apenas números)" title="Copiar apenas números: ${digitsOnly}">
+                                    <i class="fas fa-hashtag"></i>
+                                </button>
+                                ` : ''}
+                            </div>
+                        </div>
+                    `;
+                }
+                return rowsHtml;
+            }
+
             // 1. DADOS PESSOAIS + PROFILE MOCKUP
             createPersonalCard(data) {
                 const card = document.createElement('div');
@@ -2016,16 +2551,7 @@ generate(options = {}) {
                 const cityState = (data['Endereço Completo'] && data['Endereço Completo'].includes(',')) ? 
                     data['Endereço Completo'].split(',').slice(-2).join(', ').trim() : 'Brasil';
 
-                let rowsHtml = '';
-                for (const [label, val] of Object.entries(data)) {
-                    rowsHtml += `
-                        <div class="data-item-row" onclick="window.app.copyValue('${String(val).replace(/'/g, "\'")}', '${label}')" title="Clique para copiar">
-                            <span class="data-item-label">${label}</span>
-                            <span class="data-item-value">${val}</span>
-                            <i class="fas fa-copy data-item-copy-icon"></i>
-                        </div>
-                    `;
-                }
+                const rowsHtml = this.renderDataRows(data);
 
                 card.innerHTML = `
                     <div class="card-header">
@@ -2076,16 +2602,7 @@ generate(options = {}) {
                 const ctpsNum = data['Número CTPS'] || '0000000';
                 const ctpsSerie = data['Série CTPS'] || '001-SP';
 
-                let rowsHtml = '';
-                for (const [label, val] of Object.entries(data)) {
-                    rowsHtml += `
-                        <div class="data-item-row" onclick="window.app.copyValue('${String(val).replace(/'/g, "\'")}', '${label}')" title="Clique para copiar">
-                            <span class="data-item-label">${label}</span>
-                            <span class="data-item-value">${val}</span>
-                            <i class="fas fa-copy data-item-copy-icon"></i>
-                        </div>
-                    `;
-                }
+                const rowsHtml = this.renderDataRows(data);
 
                 card.innerHTML = `
                     <div class="card-header">
@@ -2132,16 +2649,7 @@ generate(options = {}) {
                 const passport = data['Passaporte'] || 'BR000000';
                 const fullName = personalData ? personalData['Nome Completo'] : 'TITULAR DO DOCUMENTO';
 
-                let rowsHtml = '';
-                for (const [label, val] of Object.entries(data)) {
-                    rowsHtml += `
-                        <div class="data-item-row" onclick="window.app.copyValue('${String(val).replace(/'/g, "\'")}', '${label}')" title="Clique para copiar">
-                            <span class="data-item-label">${label}</span>
-                            <span class="data-item-value">${val}</span>
-                            <i class="fas fa-copy data-item-copy-icon"></i>
-                        </div>
-                    `;
-                }
+                const rowsHtml = this.renderDataRows(data);
 
                 card.innerHTML = `
                     <div class="card-header">
@@ -2226,16 +2734,7 @@ generate(options = {}) {
                     bankBorder = 'rgba(34, 211, 238, 0.35)';
                 }
 
-                let rowsHtml = '';
-                for (const [label, val] of Object.entries(data)) {
-                    rowsHtml += `
-                        <div class="data-item-row" onclick="window.app.copyValue('${String(val).replace(/'/g, "\'")}', '${label}')" title="Clique para copiar">
-                            <span class="data-item-label">${label}</span>
-                            <span class="data-item-value">${val}</span>
-                            <i class="fas fa-copy data-item-copy-icon"></i>
-                        </div>
-                    `;
-                }
+                const rowsHtml = this.renderDataRows(data);
 
                 card.innerHTML = `
                     <div class="card-header">
@@ -2286,22 +2785,13 @@ generate(options = {}) {
                 const card = document.createElement('div');
                 card.className = 'data-card';
 
-                const cardNumber = cardData['Número do Cartão'] || '4000 1234 5678 9010';
+                const cardNumber = cardData['Número'] || cardData['Número do Cartão'] || '4000 1234 5678 9010';
                 const cardHolder = personalData ? personalData['Nome Completo'] : 'NOME DO TITULAR';
                 const cardExpiry = cardData['Validade'] || '12/29';
                 const cardCvv = cardData['CVV'] || '123';
                 const cardBrand = cardData['Bandeira'] || 'Mastercard';
 
-                let rowsHtml = '';
-                for (const [label, val] of Object.entries(cardData)) {
-                    rowsHtml += `
-                        <div class="data-item-row" onclick="window.app.copyValue('${String(val).replace(/'/g, "\'")}', '${label}')" title="Clique para copiar">
-                            <span class="data-item-label">${label}</span>
-                            <span class="data-item-value">${val}</span>
-                            <i class="fas fa-copy data-item-copy-icon"></i>
-                        </div>
-                    `;
-                }
+                const rowsHtml = this.renderDataRows(cardData);
 
                 card.innerHTML = `
                     <div class="card-header">
@@ -2350,16 +2840,7 @@ generate(options = {}) {
                 const year = data['Ano'] || '2025';
                 const color = data['Cor'] || 'Prata';
 
-                let rowsHtml = '';
-                for (const [label, val] of Object.entries(data)) {
-                    rowsHtml += `
-                        <div class="data-item-row" onclick="window.app.copyValue('${String(val).replace(/'/g, "\'")}', '${label}')" title="Clique para copiar">
-                            <span class="data-item-label">${label}</span>
-                            <span class="data-item-value">${val}</span>
-                            <i class="fas fa-copy data-item-copy-icon"></i>
-                        </div>
-                    `;
-                }
+                const rowsHtml = this.renderDataRows(data);
 
                 card.innerHTML = `
                     <div class="card-header">
@@ -2404,16 +2885,7 @@ generate(options = {}) {
                 const cnpj = data['CNPJ'] || '00.000.000/0001-00';
                 const companyName = data['Razão Social'] || data['Nome Fantasia'] || 'EMPRESA LTDA';
 
-                let rowsHtml = '';
-                for (const [label, val] of Object.entries(data)) {
-                    rowsHtml += `
-                        <div class="data-item-row" onclick="window.app.copyValue('${String(val).replace(/'/g, "\'")}', '${label}')" title="Clique para copiar">
-                            <span class="data-item-label">${label}</span>
-                            <span class="data-item-value">${val}</span>
-                            <i class="fas fa-copy data-item-copy-icon"></i>
-                        </div>
-                    `;
-                }
+                const rowsHtml = this.renderDataRows(data);
 
                 card.innerHTML = `
                     <div class="card-header">
@@ -2488,20 +2960,169 @@ generate(options = {}) {
             }
 
             exportJSON() {
-                const jsonStr = JSON.stringify(this.generatedData, null, 2);
-                this.downloadFile(jsonStr, 'datagen_dados.json', 'application/json');
-                this.showToast('Arquivo JSON exportado!', 'success');
+                const records = (this.batchRecords && this.batchRecords.length > 1) ? this.batchRecords : this.generatedData;
+                const jsonStr = JSON.stringify(records, null, 2);
+                const count = Array.isArray(records) ? records.length : 1;
+                this.downloadFile(jsonStr, `datagen_${count}_registros.json`, 'application/json');
+                this.showToast(`Arquivo JSON exportado (${count} registro(s))!`, 'success');
             }
 
             exportCSV() {
-                let csv = 'Categoria;Campo;Valor\n';
-                for (const [section, data] of Object.entries(this.generatedData)) {
-                    for (const [label, value] of Object.entries(data)) {
-                        csv += `"${section}";"${label}";"${String(value).replace(/"/g, '""')}"\n`;
+                const records = (this.batchRecords && this.batchRecords.length > 0) ? this.batchRecords : [this.generatedData];
+                let csv = 'ID_Registro;Categoria;Campo;Valor\n';
+                records.forEach((rec, idx) => {
+                    const regNum = idx + 1;
+                    for (const [section, data] of Object.entries(rec)) {
+                        for (const [label, value] of Object.entries(data)) {
+                            csv += `${regNum};"${section}";"${label}";"${String(value).replace(/"/g, '""')}"\n`;
+                        }
+                    }
+                });
+                this.downloadFile(csv, `datagen_${records.length}_registros.csv`, 'text/csv;charset=utf-8;');
+                this.showToast(`Arquivo CSV exportado (${records.length} registro(s))!`, 'success');
+            }
+
+            exportSQL() {
+                const records = (this.batchRecords && this.batchRecords.length > 0) ? this.batchRecords : [this.generatedData];
+                if (!records[0] || !records[0].dadosPessoais) {
+                    this.showToast('Gere dados primeiro antes de exportar SQL!', 'error');
+                    return;
+                }
+
+                let sql = `-- ========================================================\n`;
+                sql += `-- DataGen BR - Carga de Testes SQL (Seed Data)\n`;
+                sql += `-- Gerado em: ${new Date().toLocaleString('pt-BR')}\n`;
+                sql += `-- Total de registros: ${records.length}\n`;
+                sql += `-- ========================================================\n\n`;
+
+                const sanitize = (val) => String(val || '').replace(/'/g, "''");
+
+                // 1. Tabela Pessoas / Usuários
+                sql += `-- Inserção na tabela de Usuários / Clientes\n`;
+                sql += `INSERT INTO usuarios (\n`;
+                sql += `    nome_completo, cpf, rg, data_nascimento, genero, estado_civil,\n`;
+                sql += `    email, telefone, cep, endereco, profissao, renda_mensal\n`;
+                sql += `) VALUES\n`;
+
+                const rows = records.map((rec, idx) => {
+                    const dp = rec.dadosPessoais || {};
+                    const doc = rec.documentos || {};
+                    const ctps = rec.ocupacaoCTPS || {};
+                    
+                    const birth = dp['Data de Nascimento'] ? dp['Data de Nascimento'].split('/').reverse().join('-') : '1990-01-01';
+                    const rendaRaw = ctps['Renda Mensal'] ? parseFloat(String(ctps['Renda Mensal']).replace(/[^0-9,-]/g, '').replace(',', '.')) || 0 : 0;
+
+                    return `(
+    '${sanitize(dp['Nome Completo'])}',
+    '${sanitize(doc['CPF'])}',
+    '${sanitize(doc['RG'])}',
+    '${birth}',
+    '${sanitize(dp['Gênero'])}',
+    '${sanitize(dp['Estado Civil'])}',
+    '${sanitize(dp['E-mail'])}',
+    '${sanitize(dp['Telefone Celular'])}',
+    '${sanitize(dp['CEP'])}',
+    '${sanitize(dp['Endereço Completo'])}',
+    '${sanitize(ctps['Profissão / Cargo'])}',
+    ${rendaRaw.toFixed(2)}
+)${idx === records.length - 1 ? ';' : ','}`;
+                });
+
+                sql += rows.join('\n') + '\n\n';
+
+                // 2. Se houver PJ
+                const pjRecords = records.filter(r => r.pessoaJuridica);
+                if (pjRecords.length > 0) {
+                    sql += `-- Inserção na tabela de Empresas / PJ\n`;
+                    sql += `INSERT INTO empresas (\n`;
+                    sql += `    razao_social, nome_fantasia, cnpj, inscricao_estadual, email, telefone, representante_legal\n`;
+                    sql += `) VALUES\n`;
+                    const pjRows = pjRecords.map((rec, idx) => {
+                        const pj = rec.pessoaJuridica;
+                        return `(
+    '${sanitize(pj['Razão Social'])}',
+    '${sanitize(pj['Nome Fantasia'])}',
+    '${sanitize(pj['CNPJ'])}',
+    '${sanitize(pj['Inscrição Estadual'])}',
+    '${sanitize(pj['E-mail Corporativo'])}',
+    '${sanitize(pj['Telefone Comercial'])}',
+    '${sanitize(pj['Representante Legal'])}'
+)${idx === pjRecords.length - 1 ? ';' : ','}`;
+                    });
+                    sql += pjRows.join('\n') + ';\n';
+                }
+
+                this.downloadFile(sql, `datagen_seed_${records.length}_registros.sql`, 'application/sql');
+                this.showToast(`Script SQL exportado com ${records.length} registro(s)!`, 'success');
+            }
+
+            openValidatorModal() {
+                if (!this.validatorModal) return;
+                this.validatorModal.classList.add('active');
+                if (this.valDocInput) {
+                    this.valDocInput.focus();
+                    if (!this.valDocInput.value && this.generatedData && this.generatedData.documentos) {
+                        this.valDocInput.placeholder = `Ex: ${this.generatedData.documentos['CPF'] || '123.456.789-00'}`;
                     }
                 }
-                this.downloadFile(csv, 'datagen_dados.csv', 'text/csv;charset=utf-8;');
-                this.showToast('Arquivo CSV exportado!', 'success');
+            }
+
+            closeValidatorModal() {
+                if (!this.validatorModal) return;
+                this.validatorModal.classList.remove('active');
+            }
+
+            handleValidatorInput() {
+                const docType = this.valDocType ? this.valDocType.value : 'auto';
+                const inputVal = this.valDocInput ? this.valDocInput.value.trim() : '';
+                const resultBox = document.getElementById('val-status-result');
+
+                if (!resultBox) return;
+
+                if (!inputVal) {
+                    resultBox.className = 'val-result-box val-result-idle';
+                    resultBox.innerHTML = '<i class="fas fa-circle-info"></i><span>Digite ou cole um documento acima para validar.</span>';
+                    return;
+                }
+
+                const clean = inputVal.replace(/\D/g, '');
+                let res = { valid: false, message: 'Formato não reconhecido' };
+                let effectiveType = docType;
+
+                if (effectiveType === 'auto') {
+                    if (clean.length === 11) {
+                        const cpfTest = this.generator.validateCPF(clean);
+                        if (cpfTest.valid) {
+                            res = cpfTest;
+                        } else {
+                            const pisTest = this.generator.validatePIS(clean);
+                            if (pisTest.valid) res = pisTest;
+                            else res = cpfTest;
+                        }
+                    } else if (clean.length === 14) {
+                        res = this.generator.validateCNPJ(clean);
+                    } else if (clean.length >= 13 && clean.length <= 19) {
+                        res = this.generator.validateCreditCard(clean);
+                    } else {
+                        res = { valid: false, message: `Quantidade de dígitos (${clean.length}) incompatível com CPF (11), CNPJ (14), PIS (11) ou Cartão (13-19).` };
+                    }
+                } else if (effectiveType === 'cpf') {
+                    res = this.generator.validateCPF(clean);
+                } else if (effectiveType === 'cnpj') {
+                    res = this.generator.validateCNPJ(clean);
+                } else if (effectiveType === 'pis') {
+                    res = this.generator.validatePIS(clean);
+                } else if (effectiveType === 'card') {
+                    res = this.generator.validateCreditCard(clean);
+                }
+
+                if (res.valid) {
+                    resultBox.className = 'val-result-box val-result-valid';
+                    resultBox.innerHTML = `<i class="fas fa-circle-check"></i><span><strong>VÁLIDO:</strong> ${res.message}</span>`;
+                } else {
+                    resultBox.className = 'val-result-box val-result-invalid';
+                    resultBox.innerHTML = `<i class="fas fa-circle-xmark"></i><span><strong>INVÁLIDO:</strong> ${res.message}</span>`;
+                }
             }
 
             downloadFile(content, filename, type) {
@@ -2579,6 +3200,7 @@ generate(options = {}) {
                 this.copyAllBtn.style.display = 'inline-flex';
                 this.exportJsonBtn.style.display = 'inline-flex';
                 this.exportCsvBtn.style.display = 'inline-flex';
+                if (this.exportSqlBtn) this.exportSqlBtn.style.display = 'inline-flex';
                 this.historyBtn.style.display = 'inline-flex';
             }
 
