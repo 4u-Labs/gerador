@@ -100,6 +100,11 @@
             -webkit-font-smoothing: antialiased;
         }
 
+        html, body {
+            overflow-x: hidden;
+            max-width: 100%;
+        }
+
         body {
             background-color: var(--bg-body);
             background-image: var(--hero-pattern);
